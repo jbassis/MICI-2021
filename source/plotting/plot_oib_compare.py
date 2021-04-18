@@ -35,10 +35,10 @@ plt.rcParams.update(params)
 plt.figure(3)
 plt.clf()
 # Track 1
-sim_name_base = '../Data/sim_data/water_depth_700/bed_slope_-0.01_flux_6.0/glacier_cliff_'
-track_name = '../Data/oib_data/jakobshavn/ILATM2_20110406_135040_smooth_nadir3seg_50pt.csv'
+sim_name_base = '../data/cliff/water_depth_700/bed_slope_-0.01_flux_6.0/glacier_cliff_'
+track_name = '../data/oib/jakobshavn/ILATM2_20110406_135040_smooth_nadir3seg_50pt.csv'
 sim_name = sim_name_base+str(900).zfill(3)
-sim_name_base = '../Data/sim_data/water_depth_700/buttressing_25kPa/glacier_cliff_'
+sim_name_base = '../data/cliff/water_depth_700/buttressing_25kPa/glacier_cliff_'
 sim_name = sim_name_base+str(210).zfill(3)
 dist_sim,elev_sim = read_calving_front_sim(sim_name)
 dist_track,elev_track = read_calving_front_oib(track_name)
@@ -86,4 +86,4 @@ dist_sim,elev_sim = read_calving_front_sim(sim_name)
 plot_oib_sim(ax4,-dist_track+50,elev_track-24,dist_sim,elev_sim,r'{Helheim 2011/04/19}',label=r'\textbf{D}',title2='0 kPa buttressing')
 
 plt.show()
-plt.savefig('../Figures/oib_sim_compare.pdf')
+#plt.savefig('../Figures/oib_sim_compare.pdf')

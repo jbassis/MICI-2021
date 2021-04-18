@@ -1,5 +1,6 @@
 """
 Plot effect of temperature on terminus position
+This corresponds to figure S2
 
 """
 

@@ -146,5 +146,5 @@ plt.gcf().subplots_adjust(bottom=0.2)
 plt.gcf().subplots_adjust(wspace=1.5)
 
 
-plt.savefig('term_pos.pdf',dpi=800)
+#plt.savefig('term_pos.pdf',dpi=800)
 plt.show()

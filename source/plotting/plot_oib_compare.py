@@ -46,8 +46,8 @@ ax1=plt.subplot(2,2,1)
 plot_oib_sim(ax1,-dist_track+370,elev_track-35.5,dist_sim,elev_sim,r'{Jakobshavn 2011/04/06}',label=r'\textbf{A}',title2='25 kPa buttressing')
 
 # Jakobshavn Track 3
-sim_name_base = '../Data/sim_data/water_depth_700/bed_slope_-0.01_flux_6.0/glacier_cliff_'
-track_name = '../Data/oib_data/jakobshavn/ILATM2_20150421_135359_smooth_nadir3seg_50pt.csv'
+sim_name_base = '../data/cliff/water_depth_700/bed_slope_-0.01_flux_6.0/glacier_cliff_'
+track_name = '../data/oib/jakobshavn/ILATM2_20150421_135359_smooth_nadir3seg_50pt.csv'
 sim_name = sim_name_base+str(920).zfill(3)
 dist_sim,elev_sim = read_calving_front_sim(sim_name)
 dist_track,elev_track = read_calving_front_oib(track_name)
@@ -60,8 +60,8 @@ plot_oib_sim(ax2,-dist_track+100,elev_track-7,dist_sim,elev_sim,r'{Jakobshavn 20
 
 
 # Helheim Track 1
-sim_name_base = '../Data/sim_data/water_depth_700/bed_slope_0.0_flux_0.0/glacier_cliff_'
-track_name = '../Data/oib_data/helheim/ILATM2_20100508_125016_smooth_nadir3seg_50pt.csv'
+sim_name_base = '../data/cliff/water_depth_700/bed_slope_0.0_flux_0.0/glacier_cliff_'
+track_name = '../data/oib/helheim/ILATM2_20100508_125016_smooth_nadir3seg_50pt.csv'
 dist_track,elev_track = read_calving_front_oib(track_name)
 sim_name = sim_name_base+str(700).zfill(3)
 sim_name = sim_name_base+str(1750).zfill(3)
@@ -71,11 +71,11 @@ ax3=plt.subplot(2,2,3)
 plot_oib_sim(ax3,-dist_track+100,elev_track-35,dist_sim,elev_sim,r'{Helheim 2010/05/08}',label=r'\textbf{C}',title2='0 kPa buttressing')
 
 # Helheim Track 2
-sim_name_base = '../Data/sim_data/water_depth_700/bed_slope_0.0_flux_0.0/glacier_cliff_'
-track_name = '../Data/oib_data/helheim/ILATM2_20110419_162016_smooth_nadir3seg_50pt.csv'
+sim_name_base = '../data/cliff/water_depth_700/bed_slope_0.0_flux_0.0/glacier_cliff_'
+track_name = '../data/oib/helheim/ILATM2_20110419_162016_smooth_nadir3seg_50pt.csv'
 dist_track,elev_track = read_calving_front_oib(track_name)
 #sim_name = sim_name_base+str(720).zfill(3)
-sim_name_base = '../Data/sim_data/water_depth_700/bed_slope_0.0_flux_0.0/glacier_cliff_'
+sim_name_base = '../data/cliff/water_depth_700/bed_slope_0.0_flux_0.0/glacier_cliff_'
 sim_name = sim_name_base+str(1310).zfill(3)
 #sim_name = sim_name_base+str(1830).zfill(3)
 dist_sim,elev_sim = read_calving_front_sim(sim_name)

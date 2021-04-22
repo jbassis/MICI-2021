@@ -26,32 +26,9 @@ params = {
 plt.rcParams.update(params)
 
 
-def lsqr_dLdt(fname,tmin,tmax=100.0):
-    data=np.load(fname)
-    t = data['t']
-    L = data['L']
-    filter = (t>tmin) & (t<tmax)
-    #filter = (t>2/12 )
-    if sum(filter>0):
-        #t=t[filter]
-        #L=L[filter]
-        dLdt,b,rvalue,pvalue1,err=linregress(t[filter],L[filter])
-    else:
-        filter = (t>tmin/2) #& (t<1.0)
-        dLdt,b,rvalue,pvalue1,err=linregress(t[filter],L[filter])
-    return dLdt,err,t[-1]
 
+data = np.load('../data/cliff/dLdt.npz')
 
-
-
-for i in range(len(fluxes)):
-    flux = fluxes[i]
-    for j in range(len(bed_slopes)):
-        bed_slope = bed_slopes[j]
-        fname_base ='../data/cliff/water_depth_700/glacier_surf_slope_'+str(surf_slope)+'_bed_slope_'+str(bed_slope)+'_flux_'+str(flux)+'_high_res_CFL/glacier_cliff_'
-        fname = fname_base + 'term_pos.npz'
-        dLdt[i,j],err[i,j],tm = lsqr_dLdt(fname,tmin,tmax)
-        print('Bed slope',bed_slope,'Flux',flux,'Rate of advance (m/a)',dLdt[i,j],'err',err[i,j],'Max time',tm)
 
 vmin = -12
 vmax =  3

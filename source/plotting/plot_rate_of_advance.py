@@ -28,7 +28,7 @@ plt.rcParams.update(params)
 
 
 data = np.load('../data/cliff/dLdt.npz')
-
+dLdt = data['dLdt']
 
 vmin = -12
 vmax =  3
@@ -61,10 +61,9 @@ plt.clabel(CS, inline=1, fontsize=10,fmt='%1.0f')
 surf_slope = 0.01
 bed_slopes = np.array([-0.02,0.0,0.01])
 fluxes = np.array([4.0,2.0,5.0])
-for (bed_slope,flux) in zip(bed_slopes,fluxes):
-    fname ='../data/cliff/water_depth_700/glacier_surf_slope_'+str(surf_slope)+'_bed_slope_'+str(bed_slope)+'_flux_'+str(flux)+'_high_res_CFL3/glacier_cliff_'+ 'term_pos.npz'
-    dL1,err1,tm = lsqr_dLdt(fname,tmin,tmax)
-    print('Bed slope',bed_slope,'Flux',flux,'Rate of advance (m/a)',dL1,'err',err1,'Max time',tm)
+d =np.load('../data/cliff/dLdt_surf_slope_0.01.npz')
+dLs = d['dL1']
+for (bed_slope,flux,dL1) in zip(bed_slopes,fluxes,dLs):
     plt.scatter([bed_slope-surf_slope],[flux],s=50,c=[dL1/1e3],cmap='bwr_r',norm=norm,marker='s',edgecolor='k')
 surf_slope = 0.02
 #plt.scatter([-0.01],[2],s=50,c=[-2137.5210508252835/1e3],cmap='bwr_r',norm=norm,marker='o',edgecolor='k')
@@ -98,7 +97,7 @@ plt.text(0.001, -2.95, r'H decreases upstream',fontsize=10,wrap=True)
 #            arrowprops=dict(facecolor='black', shrink=0.015))
 plt.text(-0.018,1.85,'Thwaites')
 plt.show()
-plt.savefig('Figures/Figure_rate_of_advance.pdf',bbox_inches='tight')
+#plt.savefig('Figures/Figure_rate_of_advance.pdf',bbox_inches='tight')
 
 
 #plt.annotate("", xy=(-0.04, 8), xytext=(0., 8),
